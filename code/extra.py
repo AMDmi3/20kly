@@ -16,7 +16,11 @@ from primitives import *
 # (x1,y1) and (x2,y2), such that a / b of the line
 # is between (x,y) and (x1,y1).
 
-def Partial_Vector((x1,y1),(x2,y2),(a,b)):
+def Partial_Vector(x1_y1, x2_y2, a_b):
+    x1, y1 = x1_y1
+    x2, y2 = x2_y2
+    a, b = a_b
+
     x = x1 + ((( x2 - x1 ) * a ) / b )
     y = y1 + ((( y2 - y1 ) * a ) / b )
     return (x,y)
@@ -24,10 +28,12 @@ def Partial_Vector((x1,y1),(x2,y2),(a,b)):
 
 # I'm always wanting to sort lists of tuples.
 def Sort_By_Tuple_0(list):
-    list.sort(cmp=lambda (a,b),(c,d): cmp(a,c))
+    list.sort(cmp=lambda ab, cd: cmp(ab[0], cd[0]))
     return None
 
-def More_Accurate_Line((x1,y1), (x2,y2)):
+def More_Accurate_Line(x1_y1, x2_y2):
+    x1, y1 = x1_y1
+    x2, y2 = x2_y2
     def A(i):
         return ( 2 * i ) + 1
 
@@ -35,7 +41,8 @@ def More_Accurate_Line((x1,y1), (x2,y2)):
             bresenham.Line((A(x1), A(y1)), (A(x2), A(y2))) ]
 
 # Check line (a,b) against given grid pos
-def Intersect_Grid_Square(gpos, (a,b)):
+def Intersect_Grid_Square(gpos, a_b):
+    a, b = a_b
     (x,y) = gpos
     x -= 0.5
     y -= 0.5
@@ -101,7 +108,8 @@ def Make_Quake_SF_Points(off):
     return [start, finish]
 
 
-def Simple_Menu_Loop(screen, current_menu, (x,y)):
+def Simple_Menu_Loop(screen, current_menu, x_y):
+    x, y = x_y
     cmd = None
     quit = False
 

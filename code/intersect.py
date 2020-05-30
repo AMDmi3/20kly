@@ -10,7 +10,10 @@
 # Note 1: it's not an intersection if the two lines share an endpoint.
 # Note 2: Can't detect overlapping parallel lines.
 
-def Intersect(((xa1,ya1),(xa2,ya2)),((xb1,yb1),(xb2,yb2))):
+def Intersect(rect_a, rect_b):
+    (xa1,ya1),(xa2,ya2) = rect_a
+    (xb1,yb1),(xb2,yb2) = rect_b
+
     xa = xa2 - xa1
     ya = ya2 - ya1
     xb = xb2 - xb1

@@ -51,7 +51,8 @@ class Item:
         pass
 
 class Well(Item):
-    def __init__(self, (x,y), name="Well"):
+    def __init__(self, x_y, name="Well"):
+        x, y = x_y
         Item.__init__(self, name)
         self.pos = (x,y)
         self.draw_obj = draw_obj.Draw_Obj("well.png", 1)
@@ -191,8 +192,9 @@ class Building(Item):
         return (r,g,b)
 
 class Node(Building):
-    def __init__(self,(x,y),name="Node"):
+    def __init__(self, x_y, name="Node"):
         Building.__init__(self,name)
+        x, y = x_y
         self.pipes = []
         self.pos = (x,y)
         self.max_health = NODE_HEALTH_UNITS * HEALTH_UNIT
@@ -272,7 +274,8 @@ class Node(Building):
 
 
 class City_Node(Node):
-    def __init__(self,(x,y),name="City"):
+    def __init__(self, x_y, name="City"):
+        x, y = x_y
         Node.__init__(self,(x,y),name)
         self.base_colour = CITY_COLOUR
         self.avail_work_units = 1 
@@ -383,7 +386,8 @@ class City_Node(Node):
 
 
 class Well_Node(Node):
-    def __init__(self,(x,y),name="Steam Maker"):
+    def __init__(self, x_y, name="Steam Maker"):
+        x, y = x_y
         Node.__init__(self,(x,y),name)
         self.base_colour = (255,0,192)
         self.draw_obj_finished = draw_obj.Draw_Obj("maker.png", 1)
@@ -465,7 +469,8 @@ class Pipe(Building):
         # a very soft target.
         return Building.Take_Damage(self, dmg_level * (self.length + 1.0))
 
-    def Draw_Mini(self, output, (x,y) ):
+    def Draw_Mini(self, output, x_y ):
+        x, y = x_y
         (x1,y1) = Grid_To_Scr(self.n1.pos)
         (x2,y2) = Grid_To_Scr(self.n2.pos)
         x1 -= x ; x2 -= x

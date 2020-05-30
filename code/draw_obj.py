@@ -30,7 +30,8 @@ class Draw_Obj:
         self.key = (img_name, grid_size)
         Make_Cache_Item(self.key)
 
-    def Draw(self, output, gpos, (sx, sy)):
+    def Draw(self, output, gpos, sx_sy):
+        sx, sy = sx_sy
         cache[ self.key ].Draw(output, gpos, (sx, sy))
 
 def Flush_Draw_Obj_Cache():
@@ -64,7 +65,8 @@ def Make_Cache_Item(key):
             for c in [ 0, 0, 50, 100, 150, 200, 250, 250, 150 ]:
                 self.frames.append(self.__Colour_Substitute(c, img))
 
-        def Draw(self, output, gpos, (sx, sy)):
+        def Draw(self, output, gpos, sx_sy):
+            sx, sy = sx_sy
             global frame
 
             (x,y) = Grid_To_Scr(gpos)

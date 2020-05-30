@@ -106,7 +106,8 @@ class Menu:
                     pygame.draw.rect(output, (0, 180, 0), r, 1)
 
 
-    def __Draw(self, (width_hint, height_hint)):
+    def __Draw(self, size_hint):
+        width_hint, height_hint = size_hint
         surf = pygame.Surface((width_hint, height_hint))
         bbox = Rect(0, 0, width_hint, height_hint)
 

@@ -34,12 +34,14 @@ def Analyse_Network(game_object):
     return hr
 
 # Called at the end of the game, to display statistics:
-def Review(screen, (width, height), game_object, historian):
+def Review(screen, width_height, game_object, historian):
+    width, height = width_height
 
     g = game_object
     extra.Tile_Texture(screen, "006metal.jpg", screen.get_rect())
 
-    def Text(str, size, (x,y), justify):
+    def Text(str, size, x_y, justify):
+        x, y = x_y
         img = stats.Get_Font(size).render(str, True, (255, 255, 255))
 
         if ( justify == 0 ): # centre
@@ -109,7 +111,8 @@ def Review(screen, (width, height), game_object, historian):
         ( "Work Unit Availability", "work_units_avail", (0,255,255) ),
         ( "City Steam Pressure", "city_pressure", (0,0,255) ) ]
 
-    def Regraph((heading, attribute, colour)):
+    def Regraph(args):
+        heading, attribute, colour = args
         pygame.draw.rect(screen, (0, 0, 0), graph_window)
         pygame.draw.rect(screen, (128, 128, 128), graph_window, 2)
 

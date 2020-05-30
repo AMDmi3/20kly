@@ -345,8 +345,9 @@ class Tutor_Memory:
         self.update = False
         self.permit_season_change = False
 
-    def Add_Message(self,(previous_msg_name, this_msg_name,
-                title, text, sf)):
+    def Add_Message(self, args):
+
+        previous_msg_name, this_msg_name, title, text, sf = args
 
         if ( self.current_msg_name == previous_msg_name ):
             self.current_msg_name = this_msg_name

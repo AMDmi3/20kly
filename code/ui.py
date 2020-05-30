@@ -14,7 +14,8 @@ from primitives import *
 
 
 class User_Interface:
-    def __init__(self, net, (width, height)):
+    def __init__(self, net, width_height):
+        width, height = width_height
         self.net = net
         self.control_menu = None
 

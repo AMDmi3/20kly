@@ -28,8 +28,9 @@ from mail import New_Mail
 class Game_Data:
     pass
 
-def Main_Loop(screen, clock, (width, height), 
+def Main_Loop(screen, clock, width_height, 
             restore_pos, challenge):
+    width, height = width_height
     # Initialisation of screen things.
 
     menu_margin = height

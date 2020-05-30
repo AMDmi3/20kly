@@ -140,14 +140,17 @@ class Difficulty:
 
 DIFFICULTY = Difficulty()
 
-def Scr_To_Grid((x,y)):
+def Scr_To_Grid(x_y):
+    x, y = x_y
     return (x / __grid_size, y / __grid_size)
 
-def Grid_To_Scr((x,y)):
+def Grid_To_Scr(x_y):
+    x, y = x_y
     return (( x * __grid_size ) + __h_grid_size,
             ( y * __grid_size ) + __h_grid_size )
 
-def Grid_To_Scr_Rect((x,y)):
+def Grid_To_Scr_Rect(x_y):
+    x, y = x_y
     (cx,cy) = Grid_To_Scr((x,y))
     return Rect(cx - __h_grid_size_1, cy - __h_grid_size_1, 
             __grid_size_1, __grid_size_1)

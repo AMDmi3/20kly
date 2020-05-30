@@ -225,7 +225,7 @@ class Network:
             l.append(out)
             return out
 
-    def Pipe_Possible(self, (x1,y1), (x2,y2)):
+    def Pipe_Possible(self, x1_y1, x2_y2):
         # no restrictions
         return True
        
