@@ -197,7 +197,7 @@ def Main_Loop(screen, clock, width_height,
         lev[ MENU_PEACEFUL ] = "a Peaceful"
     
         assert g.challenge != None
-        assert lev.has_key( g.challenge )
+        assert g.challenge in lev
         New_Mail("You are playing " + lev[ g.challenge ] + " game.")
         New_Mail("Win the game by upgrading your city to tech level %u."
                 % DIFFICULTY.CITY_MAX_TECH_LEVEL )

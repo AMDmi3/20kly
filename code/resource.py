@@ -50,7 +50,7 @@ def Load_Image(name):
 
     key = name
 
-    if ( __img_cache.has_key(key) ):
+    if key in __img_cache:
         return __img_cache[ key ]
     
     fname = Path(name)
@@ -92,7 +92,7 @@ def Load_Sound(name):
     if ( __snd_disabled ):
         return None
 
-    if ( __snd_cache.has_key(name) ):
+    if name in __snd_cache:
         return __snd_cache[ name ]
 
     #print "Caching new sound:",name

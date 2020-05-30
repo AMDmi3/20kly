@@ -9,7 +9,7 @@ import sys
 
 def Check_Version():
     fault = False
-    if ( sys.__dict__.has_key("version_info" ) ):
+    if 'version_info' in sys.__dict__:
         (major, minor, micro, releaselevel, serial) = sys.version_info
         if (( major < 2 )
         or (( major == 2 ) and ( minor < 4 ))):

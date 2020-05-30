@@ -43,7 +43,7 @@ def Next_Frame():
     frame += 1
 
 def Make_Cache_Item(key):
-    if ( cache.has_key(key) ):
+    if key in cache:
         return  # Done already.
 
     class Real_Draw_Obj:
