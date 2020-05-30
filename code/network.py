@@ -175,7 +175,7 @@ class Network:
         if ( len(other_items) != 0 ):
             sound.FX("error")
             New_Mail("Pipe collides with other items.")
-            print repr(other_items)
+            print(repr(other_items))
             return False
 
         for p in other_pipes:

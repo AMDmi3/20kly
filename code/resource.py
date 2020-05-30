@@ -58,9 +58,9 @@ def Load_Image(name):
         img = pygame.image.load(fname)
     except Exception, r:
         s = "WARNING: Unable to load image '" + fname + "': " + str(r)
-        print ""
-        print s
-        print ""
+        print("")
+        print(s)
+        print("")
         New_Mail(s)
         img = pygame.Surface((10,10))
         img.fill((255,0,0))
@@ -101,11 +101,11 @@ def Load_Sound(name):
     try:
         f = pygame.mixer.Sound(fname)
     except Exception, x:
-        print ""
-        print "WARNING: Error loading sound effect " + fname
-        print "Real name: " + name
-        print repr(x) + " " + str(x)
-        print ""
+        print("")
+        print("WARNING: Error loading sound effect " + fname)
+        print("Real name: " + name)
+        print(repr(x) + " " + str(x))
+        print("")
         f = None
    
     __snd_cache[ name ] = f

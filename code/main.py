@@ -18,11 +18,11 @@ DEB_MANUAL = '/usr/share/doc/lightyears/html/index.html'
 def Main(data_dir):
 
     n = "20,000 Light-Years Into Space"
-    print ""
-    print n
-    print "Copyright (C) Jack Whitham 2006-11"
-    print "Version", config.CFG_VERSION
-    print ""
+    print("")
+    print(n)
+    print("Copyright (C) Jack Whitham 2006-11")
+    print("Version", config.CFG_VERSION)
+    print("")
 
     resource.DATA_DIR = data_dir
 
@@ -41,7 +41,7 @@ def Main(data_dir):
             pygame.mixer.pre_init(22050, -16, 2, bufsize)
             pygame.mixer.init()
         except pygame.error, message:
-            print 'Sound initialization failed. %s' % message
+            print('Sound initialization failed. %s' % message)
             no_sound = True
 
     pygame.init()

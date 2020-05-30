@@ -123,7 +123,7 @@ def Main_Loop(screen, clock, (width, height),
         g.net.Steam_Think()
         if ( g.net.hub.Get_Pressure() >= PRESSURE_GOOD ):
             if ( DEBUG ):
-                print i,'steps required for equilibrium'
+                print(i,'steps required for equilibrium')
             break
 
     assert g.net.hub.Get_Pressure() >= PRESSURE_GOOD
@@ -248,7 +248,7 @@ def Main_Loop(screen, clock, (width, height),
         fps_count += 1
         if ( fps_count > 100 ):
             if ( DEBUG ):
-                print '%1.2f fps' % ( float(fps_count) / ( rt_now - fps_time ) )
+                print('%1.2f fps' % ( float(fps_count) / ( rt_now - fps_time ) ))
             fps_time = rt_now 
             fps_count = 0
 

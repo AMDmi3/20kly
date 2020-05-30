@@ -257,14 +257,14 @@ class User_Interface:
             self.selection = None
 
         if ( DEBUG ):
-            print 'Selection:',self.selection
+            print('Selection:',self.selection)
             for (i,n) in enumerate(self.net.node_list):
                 if ( n == self.selection ):
-                    print 'Found: node',i
+                    print('Found: node',i)
             for (i,p) in enumerate(self.net.pipe_list):
                 if ( p == self.selection ):
-                    print 'Found: pipe',i
-            print 'End'
+                    print('Found: pipe',i)
+            print('End')
 
 
         if ( not self.net.ground_grid.has_key(gpos) ):

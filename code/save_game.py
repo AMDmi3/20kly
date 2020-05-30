@@ -26,7 +26,7 @@ def Load(g, num):
         f.close()
     except Exception, x:
         y = ("Error restoring file: " + repr(x) + str(x))
-        print y
+        print(y)
         return (None, y)
     
     if ( g2.version != g.version ):
