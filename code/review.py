@@ -45,7 +45,7 @@ def Review(screen, width_height, game_object, historian):
         img = stats.Get_Font(size).render(str, True, (255, 255, 255))
 
         if ( justify == 0 ): # centre
-            x -= ( img.get_rect().width ) / 2
+            x -= ( img.get_rect().width ) // 2
         elif ( justify < 0 ): # right
             x -= img.get_rect().width
 
@@ -55,13 +55,13 @@ def Review(screen, width_height, game_object, historian):
 
 
     if ( g.win ):
-        y = Text("You have won the game!", 36, (width / 2, 10), 0)
+        y = Text("You have won the game!", 36, (width // 2, 10), 0)
     else:
-        y = Text("You have lost the game!", 36, (width / 2, 10), 0) 
+        y = Text("You have lost the game!", 36, (width // 2, 10), 0) 
 
-    Text("Thankyou for playing!", 15, (width / 2, y), 0) 
+    Text("Thankyou for playing!", 15, (width // 2, y), 0) 
 
-    y += height / 10
+    y += height // 10
 
     lev = dict()
     lev[ MENU_TUTORIAL ] = lev[ MENU_BEGINNER ] = "Beginner"
@@ -85,7 +85,7 @@ def Review(screen, width_height, game_object, historian):
         ( "Game level", level ),
         ( "Your " + level + " Score", "%u" % score ) ]
 
-    r = Rect(25, y, width / 2, 1)
+    r = Rect(25, y, width // 2, 1)
     y = Text("Summary", 18, r.center, 0)
 
     for (key, data) in l:
@@ -96,7 +96,7 @@ def Review(screen, width_height, game_object, historian):
     r = r.inflate(10,10)
     pygame.draw.rect(screen, (128, 128, 128), r, 2)
 
-    y = r.bottom + ( height / 10 )
+    y = r.bottom + ( height // 10 )
 
     graph_window = Rect(r.left, y, r.width, ( height - y ) - 25 )
 
@@ -219,7 +219,7 @@ def Review(screen, width_height, game_object, historian):
     quit = False
     while ( not quit ):
         (quit, cmd) = extra.Simple_Menu_Loop(screen, 
-                    proceed, (( width * 3 ) / 4, height / 2 ))
+                    proceed, (( width * 3 ) // 4, height // 2 ))
 
         if ( cmd == MENU_MENU ):
             quit = True

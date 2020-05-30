@@ -165,7 +165,7 @@ class Menu:
 
 
     def Justify(self, width, text_width):
-        return ( width - text_width ) / 2
+        return ( width - text_width ) // 2
 
     def Enhancement_Interface(self, surf, num, rect, margin):
         pass

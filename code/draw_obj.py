@@ -53,7 +53,7 @@ def Make_Cache_Item(key):
             img = resource.Load_Image(img_name)
             (w, h) = img.get_rect().bottomright
             new_width = Get_Grid_Size() * grid_size
-            new_height = ( new_width * h ) / w
+            new_height = ( new_width * h ) // w
 
             img = pygame.transform.scale(img, (new_width, new_height))
 
@@ -72,7 +72,7 @@ def Make_Cache_Item(key):
             (x,y) = Grid_To_Scr(gpos)
             x += self.offset_x - sx
             y += self.offset_y - sy
-            output.blit(self.frames[ ( frame / 2 ) % len(self.frames) ], (x,y))
+            output.blit(self.frames[ ( frame // 2 ) % len(self.frames) ], (x,y))
 
         def __Colour_Substitute(self, sub, image):
             out = image.copy()

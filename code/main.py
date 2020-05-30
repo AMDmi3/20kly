@@ -165,14 +165,14 @@ def Main_Menu_Loop(name, clock, screen, width_height):
                 continue
             img = stats.Get_Font(sz).render(text, True, (200, 200, 128))
             img_r = img.get_rect()
-            img_r.center = (( width * 3 ) / 4, 0)
+            img_r.center = (( width * 3 ) // 4, 0)
             img_r.clamp_ip(screen.get_rect())
             img_r.top = y
             screen.blit(img, img_r.topleft)
             y += img_r.height
        
         (quit, cmd) = extra.Simple_Menu_Loop(screen, current_menu,
-                (( width * 3 ) / 4, 10 + ( height / 2 )))
+                (( width * 3 ) // 4, 10 + ( height // 2 )))
 
         if ( current_menu == main_menu ):
             if ( cmd == MENU_NEW_GAME ):

@@ -21,8 +21,9 @@ def Partial_Vector(x1_y1, x2_y2, a_b):
     x2, y2 = x2_y2
     a, b = a_b
 
-    x = x1 + ((( x2 - x1 ) * a ) / b )
-    y = y1 + ((( y2 - y1 ) * a ) / b )
+    # XXX: assuming integer args here, typecheck
+    x = x1 + ((( x2 - x1 ) * a ) // b )
+    y = y1 + ((( y2 - y1 ) * a ) // b )
     return (x,y)
 
 
@@ -37,7 +38,8 @@ def More_Accurate_Line(x1_y1, x2_y2):
     def A(i):
         return ( 2 * i ) + 1
 
-    return [ (x / 2, y / 2) for (x,y) in
+    # XXX: assuming integer args here, typecheck
+    return [ (x // 2, y // 2) for (x,y) in
             bresenham.Line((A(x1), A(y1)), (A(x2), A(y2))) ]
 
 # Check line (a,b) against given grid pos

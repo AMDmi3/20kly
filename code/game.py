@@ -43,7 +43,7 @@ def Main_Loop(screen, clock, width_height,
     # Grid setup
     (w,h) = GRID_SIZE
     assert w == h
-    Set_Grid_Size(height / h)
+    Set_Grid_Size(height // h)
 
     # Windows..
     game_screen_rect = Rect(0, 0, menu_margin, height)
@@ -59,7 +59,7 @@ def Main_Loop(screen, clock, width_height,
     def Sc(v):
         # Original values were for 800x600 - scale that
         # for whatever the user's screen res happens to be.
-        return ( v * height ) / 600
+        return ( v * height ) // 600
 
     margin = Sc(10)
     x1 = menu_margin + margin 
@@ -67,7 +67,7 @@ def Main_Loop(screen, clock, width_height,
 
     picture = resource.Load_Image("headersm.jpg")
     picture_rect = picture.get_rect().inflate(10,10)
-    picture_rect.center = (x1 + ( menu_width1 / 2 ),0)
+    picture_rect.center = (x1 + ( menu_width1 // 2 ),0)
     picture_rect.top = margin
     picture_surf = screen.subsurface(picture_rect)
 
@@ -227,7 +227,7 @@ def Main_Loop(screen, clock, width_height,
     Summary(g)
 
     if ( g.challenge == MENU_TUTORIAL ):
-        tutor.On(( menu_margin * 40 ) / 100)
+        tutor.On(( menu_margin * 40 ) // 100)
 
     cur_time = g.game_time.time()
 
@@ -403,7 +403,7 @@ def Main_Loop(screen, clock, width_height,
             else:
                 assert False
             g.season_ends = cur_time + LENGTH_OF_SEASON
-            g.season_effect = cur_time + ( g.season_fx.Get_Period() / 2 )
+            g.season_effect = cur_time + ( g.season_fx.Get_Period() // 2 )
 
             if ( g.challenge != MENU_PEACEFUL ):
                 New_Mail("The " + g.season_fx.name + 

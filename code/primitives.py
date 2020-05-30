@@ -142,7 +142,8 @@ DIFFICULTY = Difficulty()
 
 def Scr_To_Grid(x_y):
     x, y = x_y
-    return (x / __grid_size, y / __grid_size)
+    # XXX: assuming int argumets here, typecheck
+    return (x // __grid_size, y // __grid_size)
 
 def Grid_To_Scr(x_y):
     x, y = x_y
@@ -159,7 +160,7 @@ def Set_Grid_Size(sz):
     global __grid_size, __grid_size_1, __h_grid_size, __h_grid_size_1
     __grid_size = sz
     __grid_size_1 = sz - 1
-    __h_grid_size = sz / 2
+    __h_grid_size = sz // 2
     __h_grid_size_1 = __h_grid_size - 1
 
 def Get_Grid_Size():

@@ -147,7 +147,7 @@ class Building(Item):
 
     def Get_Information(self):
         l = Item.Get_Information(self)
-        h = (( self.health * 100 ) / self.max_health)
+        h = (( self.health * 100 ) // self.max_health)
         h2 = (self.max_health - self.health)
         units = ""
         if ( h2 > 0 ):
@@ -179,13 +179,13 @@ class Building(Item):
         (r,g,b) = self.base_colour
         if ( self.complete ):
             if ( self.health < self.max_health ):
-                g = ( self.health * g ) / self.max_health
-                b = ( self.health * b ) / self.max_health
+                g = ( self.health * g ) // self.max_health
+                b = ( self.health * b ) // self.max_health
                 if ( r < 128 ): r = 128
         else:
             if ( self.health > 0 ):
-                r = ( self.health * r ) / self.max_health
-                b = ( self.health * b ) / self.max_health
+                r = ( self.health * r ) // self.max_health
+                b = ( self.health * b ) // self.max_health
                 if ( r < 128 ): r = 128
             else:
                 r = g = b = 128
@@ -264,7 +264,7 @@ class Node(Building):
         return self.steam.Get_Pressure()
 
     def Draw_Selected(self, output, highlight):
-        ra = ( Get_Grid_Size() / 2 ) + 2
+        ra = ( Get_Grid_Size() // 2 ) + 2
         pygame.draw.circle(output, highlight,
             Grid_To_Scr(self.pos), ra , 2 )
         return Grid_To_Scr_Rect(self.pos).inflate(ra,ra)
@@ -425,7 +425,7 @@ class Pipe(Building):
         self.n2 = n2
         (x1,y1) = n1.pos
         (x2,y2) = n2.pos
-        self.pos = ((x1 + x2) / 2, (y1 + y2) / 2)
+        self.pos = ((x1 + x2) // 2, (y1 + y2) // 2)
         self.length = math.hypot(x1 - x2, y1 - y2)
         self.max_health = int(self.length + 1) * HEALTH_UNIT
         self.base_colour = (0,255,0)
@@ -484,8 +484,8 @@ class Pipe(Building):
         pygame.draw.line(output, c, (x1,y1), (x2,y2), 2)
 
         if ( not self.Needs_Work() ):
-            mx = ( x1 + x2 ) / 2
-            my = ( y1 + y2 ) / 2
+            mx = ( x1 + x2 ) // 2
+            my = ( y1 + y2 ) // 2
             if ( output.get_rect().collidepoint((mx,my)) ):
                 info_text = "%1.1f U" % abs(self.current_n1_to_n2)
                 info_surf = stats.Get_Font(12).render(info_text, True, c)

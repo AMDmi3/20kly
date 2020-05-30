@@ -20,7 +20,7 @@ MAX_STORM_SIZE = 70
 # A puff of steam coming out of a vent or steam maker.
 class Steam_Particle:
     def __init__(self):
-        m = MAX_STEAM_SIZE / 2
+        m = MAX_STEAM_SIZE // 2
         m1 = m - 1
         m2 = m + 1
 
@@ -65,8 +65,8 @@ class Storm_Particle:
         self.c = stormsample.get_at((x,y)) 
 
     def Next(self):
-        x = ( MAX_STORM_SIZE / 2 ) + ( self.radius * math.cos(self.angle) )
-        y = ( MAX_STORM_SIZE / 2 ) + ( self.radius * math.sin(self.angle) )
+        x = ( MAX_STORM_SIZE // 2 ) + ( self.radius * math.cos(self.angle) )
+        y = ( MAX_STORM_SIZE // 2 ) + ( self.radius * math.sin(self.angle) )
         self.angle += 0.2 # angular velocity
         self.radius += self.dr
         return ((x,y), self.c)
