@@ -119,7 +119,7 @@ def Main_Loop(screen, clock, (width, height),
     DIFFICULTY.Set(MENU_INTERMEDIATE)
 
     # Establish equilibrium with initial network.
-    for i in xrange(300):
+    for i in range(300):
         g.net.Steam_Think()
         if ( g.net.hub.Get_Pressure() >= PRESSURE_GOOD ):
             if ( DEBUG ):

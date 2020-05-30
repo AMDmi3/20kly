@@ -354,8 +354,8 @@ class User_Interface:
 
     def Debug_Grid(self, output):
         (mx, my) = GRID_SIZE
-        for y in xrange(my):
-            for x in xrange(mx):
+        for y in range(my):
+            for x in range(mx):
                 if ( self.net.pipe_grid.has_key( (x,y) ) ):
                     r = Grid_To_Scr_Rect((x,y))
                     pygame.draw.rect(output, (55,55,55), r, 1)

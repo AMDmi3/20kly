@@ -30,7 +30,7 @@ class Network:
 
         # Wells are created. All wells must be at least a certain
         # distance from the city.
-        for i in xrange(10):
+        for i in range(10):
             self.Make_Well(teaching)
 
         # Get centre: 
@@ -286,7 +286,7 @@ class Network:
    
     def __List_Destroy(self, lst, itm):
         l = len(lst)
-        for i in reversed(xrange(l)):
+        for i in reversed(range(l)):
             if ( lst[ i ] == itm ):
                 assert itm == lst.pop(i)
 
