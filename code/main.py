@@ -40,7 +40,7 @@ def Main(data_dir):
         try:
             pygame.mixer.pre_init(22050, -16, 2, bufsize)
             pygame.mixer.init()
-        except pygame.error, message:
+        except pygame.error as message:
             print('Sound initialization failed. %s' % message)
             no_sound = True
 
@@ -290,7 +290,7 @@ def Update_Feature(screen, menu_image):
         f = urllib.urlopen(url)
         new_version = f.readline()
         f.close()
-    except Exception, x:
+    except Exception as x:
         Finish(str(x))
         return False
 

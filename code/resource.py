@@ -56,7 +56,7 @@ def Load_Image(name):
     fname = Path(name)
     try:
         img = pygame.image.load(fname)
-    except Exception, r:
+    except Exception as r:
         s = "WARNING: Unable to load image '" + fname + "': " + str(r)
         print("")
         print(s)
@@ -100,7 +100,7 @@ def Load_Sound(name):
     fname = Path(fname + ".ogg", True)
     try:
         f = pygame.mixer.Sound(fname)
-    except Exception, x:
+    except Exception as x:
         print("")
         print("WARNING: Error loading sound effect " + fname)
         print("Real name: " + name)
